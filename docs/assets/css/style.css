@@ -27,11 +27,21 @@
 }
 
 html {
+  max-width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-padding-top: 92px;
 }
 
+@supports (overflow: clip) {
+  html {
+    overflow-x: clip;
+  }
+}
+
 body {
+  width: 100%;
+  max-width: 100%;
   margin: 0;
   background: var(--white);
   color: var(--ink);
@@ -1374,7 +1384,7 @@ p {
     top: 0;
     right: 0;
     z-index: 1002;
-    display: flex;
+    display: none;
     width: min(88vw, 380px);
     height: 100dvh;
     flex-direction: column;
@@ -1383,15 +1393,21 @@ p {
     background: var(--white);
     box-shadow: -30px 0 70px rgba(6, 25, 45, 0.2);
     padding: 24px;
-    transform: translateX(110%);
+    transform: none;
     visibility: hidden;
-    transition: transform 0.28s ease, visibility 0s linear 0.28s;
+    transition: none;
   }
 
   .main-nav.is-open {
-    transform: translateX(0);
+    display: flex;
+    transform: none;
     visibility: visible;
-    transition-delay: 0s;
+    animation: mobile-nav-reveal 0.18s ease-out;
+  }
+
+  @keyframes mobile-nav-reveal {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
   .main-nav > a:not(.button) {

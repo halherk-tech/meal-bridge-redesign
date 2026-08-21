@@ -11,9 +11,11 @@
   <link rel="canonical" href="https://meal-bridge.com/about.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <style>
+    html { max-width: 100%; overflow-x: hidden; }
+    @supports (overflow: clip) { html { overflow-x: clip; } }
     @media (max-width: 760px) {
-      .main-nav { visibility: hidden; transform: translateX(110%); }
-      .main-nav.is-open { visibility: visible; transform: translateX(0); }
+      .main-nav:not(.is-open) { display: none; visibility: hidden; }
+      .main-nav.is-open { display: flex; visibility: visible; }
     }
   </style>
   <link rel="stylesheet" href="assets/css/style.css">
