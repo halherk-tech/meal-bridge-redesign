@@ -1384,11 +1384,14 @@ p {
     box-shadow: -30px 0 70px rgba(6, 25, 45, 0.2);
     padding: 24px;
     transform: translateX(110%);
-    transition: transform 0.28s ease;
+    visibility: hidden;
+    transition: transform 0.28s ease, visibility 0s linear 0.28s;
   }
 
   .main-nav.is-open {
     transform: translateX(0);
+    visibility: visible;
+    transition-delay: 0s;
   }
 
   .main-nav > a:not(.button) {
